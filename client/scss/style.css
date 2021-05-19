@@ -10,3 +10,7 @@ h1 {
     color: #00296b;
     text-align: center;
 }
+
+#searchContainer {
+    margin: 20px;
+}

@@ -3,10 +3,16 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// app.get('/', (req, res) => {
-//     return res.status(200).send();
-// });
 
+// - handle parsing request body
+// app.use(express.json());
+
+
+// - require routers
+// const apiRouter = require('./routes/api.js');
+
+// - define route handlers
+// app.use('/api', apiRouter);
 
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
