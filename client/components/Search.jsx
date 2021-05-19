@@ -4,16 +4,19 @@ import PropTypes from 'prop-types';
 class Search extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            username: null
-        }
+        // this.state = {
+        //     username: null
+        // }
     }
     
     render() {
         // handle state here
-        
+
         return (
-            <input type="text" placeholder="Type a github username"></input>
+            <form id="searchContainer" onSubmit={this.props.handleClick}>
+                <input type="text" name="username" placeholder="Enter a github username" />
+                <button id='searchbn'> Search User </button>
+            </form>
         );
     }
 };

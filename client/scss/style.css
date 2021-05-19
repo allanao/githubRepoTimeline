@@ -11,6 +11,10 @@ h1 {
     text-align: center;
 }
 
+body p {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 #searchContainer {
     margin: 20px;
 }
