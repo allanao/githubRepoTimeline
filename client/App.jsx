@@ -57,16 +57,6 @@ class App extends Component {
         // console.log('search user:', this.state.username);
     }
 
-    // fetchUserInfo function
-    // fetchUserInfo = async (user) => {
-    //     const api_call = fetch(`https://api.github.com/users/${username}?client_id=${client_id}&client_secret=${client_secret}`);
-
-
-    //     const data = await api_call.json();
-    //     console.log('fetched data', data);
-
-    // }
-
     render() {
         // handle state
 
