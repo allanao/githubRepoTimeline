@@ -33,10 +33,10 @@ app.get('/', (req, res) => {
 });
 
 
-app.post('/signup', 
-  userController.showUserData,
-  (req, res) => {
-});
+// app.post('/signup', 
+//   userController.showUserData,
+//   (req, res) => {
+// });
 
 
 // DEFINE ROUTE HANDLERS

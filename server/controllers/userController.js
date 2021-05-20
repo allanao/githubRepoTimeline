@@ -6,16 +6,16 @@ const User = require('../models/userModel')
 const userController = {};
 
 userController.getUserData = (req, res, next) => {
-    try {
-        // const { results } = JSON.parse(fs.readFileSync(path.resolve(__dirname, '')))
-        res.locals.characters = results;
-        next();
+    // try {
+    //     // const { results } = JSON.parse(fs.readFileSync(path.resolve(__dirname, '')))
+    //     res.locals.characters = results;
+    //     next();
         
-    }
+    // }
 };
 
-fileController.getRepositoryData = (req, res, next) => {
+userController.getRepositoryData = (req, res, next) => {
 
 };
 
-module.exports = fileController;
+module.exports = userController;

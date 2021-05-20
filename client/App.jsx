@@ -23,7 +23,8 @@ class App extends Component {
             avatar_url: undefined,
             repoNum: undefined,
             followers: undefined,
-            following: undefined
+            following: undefined,
+            repoUrl: undefined,
         }
     }
 
@@ -44,6 +45,11 @@ class App extends Component {
         const data = await api_call.json();
         console.log('fetched data', data);
 
+        // FETCH REPO DATA
+        const repocall = await fetch(data.repos_url)
+            .then((data) => {
+                console.log('repoList', data);
+            })
 
         // SETS THE STATE
         this.setState({
@@ -53,6 +59,7 @@ class App extends Component {
             repoNum: data.public_repos,
             followers: data.followers,
             following: data.following,
+            // repoUrl: data.repos_url,
         });
         // console.log('search user:', this.state.username);
     }
