@@ -14,16 +14,17 @@ const client_id = 'Iv1.60275089b6a5eee8';
 const client_secret = 'c68f5a1691565c1374fca0e04b9793b0f3c3ed17';
 
 class App extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     // this.handleClick = this.handleClick.bind(this);
-    //     this.state = {
-    //         username: null,
-    //     }
-    // }
-
-    state = {
-        username: null,
+    constructor(props) {
+        super(props);
+        // this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            showUserData: false,
+            username: undefined,
+            avatar_url: undefined,
+            repoNum: undefined,
+            followers: undefined,
+            following: undefined
+        }
     }
 
     // handleClick function
@@ -45,9 +46,14 @@ class App extends Component {
 
 
         // SETS THE STATE
-        // this.setState({
-        //     username: e.target.elements.username.value,
-        // });
+        this.setState({
+            showUserData: true,
+            username: data.login,
+            avatar_url: data.avatar_url,
+            repoNum: data.public_repos,
+            followers: data.followers,
+            following: data.following,
+        });
         // console.log('search user:', this.state.username);
     }
 
@@ -70,8 +76,18 @@ class App extends Component {
         return (
             <div>
                 <Search key='searchbar' handleClick={this.handleClick} />
-                <Info key='userInfo' />
+                <div>
+                    <Info key='userData' 
+                        showUserData={this.state.showUserData}
+                        username={this.state.username}
+                        avatar_url={this.state.avatar_url}
+                        repoNum={this.state.repoNum}
+                        followers={this.state.followers}
+                        following={this.state.following}
+                    />
+                </div>
             </div>
+
         );
     }
 }

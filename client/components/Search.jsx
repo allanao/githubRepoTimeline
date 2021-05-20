@@ -14,8 +14,10 @@ class Search extends Component {
 
         return (
             <form id="searchContainer" onSubmit={this.props.handleClick}>
-                <input type="text" name="username" placeholder="Enter a github username" />
-                <button id='searchbn'> Search User </button>
+            <div id="input">
+                <input id="searchBar" type="text" name="username" placeholder="Enter a github username" />
+            </div>
+            <button id='searchbn'> Search User </button>
             </form>
         );
     }

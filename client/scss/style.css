@@ -16,5 +16,42 @@ body p {
 }
 
 #searchContainer {
-    margin: 20px;
+    margin: 10px;
+}
+
+#input input{
+    display: inline;
+    margin: 20px 10px 10px;
+    padding: 5px 25px;
+    /* width: 60px; */
+    height: 25px;
+    /* border: 0.5px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#searchContainer button {
+    display: inline;
+    background-color: #ff8500;
+    color: white;
+    padding: 6px;
+    border: none;
+}
+
+
+#info {
+    background-color: #3c096c;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+}
+
+#info h2 {
+    font-size: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.userdata {
+    /* display: inline-flex; */
+    align-content: space-around;
 }
