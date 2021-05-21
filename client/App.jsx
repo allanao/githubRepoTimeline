@@ -40,16 +40,26 @@ class App extends Component {
 
 
         // FETCHES DATA FROM API
-        const api_call = await fetch(`https://api.github.com/users/${username}?client_id=${client_id}&client_secret=${client_secret}`);
+        // const api_call = await fetch(`https://api.github.com/users/${username}?client_id=${client_id}&client_secret=${client_secret}`);
 
-        const data = await api_call.json();
-        console.log('fetched data', data);
+        // const data = await api_call.json();
+        // console.log('fetched data', data);
+
+        const api_call = await fetch(`/user/${username}`)
+            .then((data) => {
+                // parse data
+                return data.json();
+            })
+            .then((userData) => {
+                console.log('userData', userData);
+            })
+
 
         // FETCH REPO DATA
-        const repocall = await fetch(data.repos_url)
-            .then((data) => {
-                console.log('repoList', data);
-            })
+        // const repocall = await fetch(data.repos_url)
+        //     .then((data) => {
+        //         console.log('repoList', data);
+        //     })
 
         // SETS THE STATE
         this.setState({

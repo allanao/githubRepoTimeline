@@ -1,16 +1,26 @@
 const express = require('express');
 const path = require('path');
-const app = express();
-
+const app = express(); // invokes express
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose'); // provides us with DB we want to connect to
 
 const PORT = 3000;
 
-// controllers
-const userController = require('./controllers/userController');
+// require models
+const User = require('./models/userModel');
+const Repo = require('./models/repoModel');
 
+// require controllers
+const userController = require('./controllers/userController');
+const repoController = require('./controllers/repoController');
+
+// require routers
+const userRouter = require('./routes/userRouter');
+const repoRouter = require('./routes/repoRouter');
+
+// connect mongoose to MongoDB
+// mongoose.connect('mongodb+srv://allanao:repotime@repotime.azhfb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+// mongoose.Promise = global.Promise; // overwriting mongo promise bec deprecated
 
 
 // Handles parsing request body
@@ -21,16 +31,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-// - require routers
-// const apiRouter = require('./routes/api.js');
-
-
+// DEFINE ROUTE HANDLERS
+// app.use('/user/repo', repoRouter);
+app.use('/user', userRouter);
+// app.use('/api', apiRouter);
 // statically serve everything in the build folder on the route '/build'
 app.use('/build', express.static(path.join(__dirname, '../build')));
-// serve index.html on the route '/'
-app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+// ROUTE REQUESTS
+app.get('/hey', (req, res) => {
+  return res.send('ho!');
 });
+
 
 
 // app.post('/signup', 
@@ -39,17 +50,15 @@ app.get('/', (req, res) => {
 // });
 
 
-// DEFINE ROUTE HANDLERS
-// app.use('/api', apiRouter);
-
-
-
+// serve index.html on the route '/'
+app.get('/', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+});
 
 
 
 
 // ERROR HANDLERS
-
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
   res.sendStatus(404);
