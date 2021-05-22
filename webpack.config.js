@@ -30,7 +30,7 @@ module.exports = {
                     // style-loader: Creates `style` nodes from JS strings
                     devMode ? "style-loader" : {
                         loader: MiniCssExtractPlugin.loader,
-                        options: { publicPath: '/build/main.css' },
+                        options: { publicPath: '/build/style.min.css' },
                     },
                     // Translates CSS into CommonJS
                     "css-loader",

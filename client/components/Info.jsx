@@ -9,7 +9,7 @@ const Info = (props) => {
     let test = '<insert fetched user data here>';
 
     // if button is clicked, showUserData should be true 
-    if (showUserData) {
+    if (props.showUserData) {
         return (
             <div id="info">
                 <h2 id="username"><b>username:</b>   {props.username}</h2>

@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 // child components
 import Search from './components/Search.jsx';
 import Info from './components/Info.jsx';
-// import Timeline from './Timeline';
+// import Timeline from './components/Timeline.jsx';
 
 // For using async await on this component
 import regeneratorRuntime from "regenerator-runtime";
-// import Timeline from './components/Timeline.jsx';
+
 
 
 // const API_KEY = 'SHA256:/V+HDj6Uwl/9DEfHjUc91eZSCudrPXQVhKJQMRoAi/I=';
@@ -87,7 +87,7 @@ class App extends Component {
                         followers={this.state.followers}
                         following={this.state.following}
                     />
-                    {/* <Timeline /> */}
+                    {/* <Timeline showUserData={this.state.showUserData}/> */}
                 </div>
             </div>
 

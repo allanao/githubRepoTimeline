@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -11,7 +12,7 @@ const Timeline = (props) => {
     // let test = '<insert fetched user data here>';
 
     // if button is clicked, showTimeline should be true 
-    if (showUserData) {
+    if (props.showUserData) {
         return (
             <VerticalTimeline>
                 <VerticalTimelineElement
