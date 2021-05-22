@@ -8,7 +8,8 @@ import Info from './components/Info.jsx';
 
 // For using async await on this component
 import regeneratorRuntime from "regenerator-runtime";
-import Timeline from './components/Timeline.jsx';
+// import Timeline from './components/Timeline.jsx';
+
 
 // const API_KEY = 'SHA256:/V+HDj6Uwl/9DEfHjUc91eZSCudrPXQVhKJQMRoAi/I=';
 const client_id = 'Iv1.60275089b6a5eee8';
@@ -86,7 +87,7 @@ class App extends Component {
                         followers={this.state.followers}
                         following={this.state.following}
                     />
-                    <Timeline />
+                    {/* <Timeline /> */}
                 </div>
             </div>
 
