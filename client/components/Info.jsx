@@ -12,12 +12,12 @@ const Info = (props) => {
     if (showUserData) {
         return (
             <div id="info">
-                <h2 id="username"><b>username:</b>   {props.username}</h2>
-                <img src={props.avatar_url}></img>
+                <h2 id="username">username:   {props.username}</h2>
+                <img href={props.avatar_url}></img>
                 <div className="userdata">
-                    <p id="repoNum"><b>public repos:</b>   {props.repoNum}</p>
-                    <p id="followers"><b>followers:</b>   {props.followers}</p>
-                    <p id="following"><b>following:</b>   {props.following}</p>
+                    <p id="repoNum">public repos:   {props.repoNum}</p>
+                    <p id="followers">followers:   {props.followers}</p>
+                    <p id="following">following:   {props.following}</p>
                 </div>
             </div>
         );
