@@ -8,6 +8,7 @@ import Info from './components/Info.jsx';
 
 // For using async await on this component
 import regeneratorRuntime from "regenerator-runtime";
+import Timeline from './components/Timeline.jsx';
 
 // const API_KEY = 'SHA256:/V+HDj6Uwl/9DEfHjUc91eZSCudrPXQVhKJQMRoAi/I=';
 const client_id = 'Iv1.60275089b6a5eee8';
@@ -19,8 +20,10 @@ class App extends Component {
         // this.handleClick = this.handleClick.bind(this);
         this.state = {
             showUserData: false,
+            showTimeline: false,
             username: undefined,
             avatar_url: undefined,
+            name: undefined,
             repoNum: undefined,
             followers: undefined,
             following: undefined,
@@ -46,16 +49,16 @@ class App extends Component {
         console.log('fetched data', data);
 
         // FETCH REPO DATA
-        const repocall = await fetch(data.repos_url)
-            .then((data) => {
-                console.log('repoList', data);
-            })
+        const repo_call = await fetch(data.repos_url);
+        const repoData = await repo_call.json();
+        console.log('repoList', repoData);
 
         // SETS THE STATE
         this.setState({
             showUserData: true,
             username: data.login,
             avatar_url: data.avatar_url,
+            name: data.name,
             repoNum: data.public_repos,
             followers: data.followers,
             following: data.following,
@@ -78,10 +81,12 @@ class App extends Component {
                         showUserData={this.state.showUserData}
                         username={this.state.username}
                         avatar_url={this.state.avatar_url}
+                        name={this.state.name}
                         repoNum={this.state.repoNum}
                         followers={this.state.followers}
                         following={this.state.following}
                     />
+                    <Timeline />
                 </div>
             </div>
 
