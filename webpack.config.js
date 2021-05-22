@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
     entry: './client/index.js',
     output: {
@@ -25,18 +27,17 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    // Creates `style` nodes from JS strings
-                    "style-loader",
+                    // style-loader: Creates `style` nodes from JS strings
+                    devMode ? "style-loader" : {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: { publicPath: '/build/main.css' },
+                    },
                     // Translates CSS into CommonJS
                     "css-loader",
                     // Compiles Sass to CSS
                     "sass-loader"
                 ],
             },
-            {
-                test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
-            }
         ],
     },
     devServer: {
